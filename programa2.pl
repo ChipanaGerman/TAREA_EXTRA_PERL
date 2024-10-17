@@ -20,4 +20,20 @@ sub calcular_promedio {
     return $promedio;
 }
 
+# Solicitar las notas al usuario
+print "Ingrese las notas separadas por espacio: ";
+my $input = <STDIN>;  # Leer la entrada del usuario
+chomp($input);  # Eliminar el salto de línea al final
 
+# Convertir la entrada en un arreglo de números
+my @notas = split(' ', $input);
+
+# Verificar que el usuario haya ingresado al menos dos notas
+if (scalar @notas < 2) {
+    print "Debe ingresar al menos dos notas.\n";
+    exit;
+}
+
+# Calcular el promedio
+my $promedio = calcular_promedio(@notas);
+print "El promedio es: $promedio\n";
